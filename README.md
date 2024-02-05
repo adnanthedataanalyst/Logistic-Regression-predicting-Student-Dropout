@@ -35,6 +35,10 @@ Three logistic regression models (Model 1, Model 2, and Model 3) are built using
 
 Predictions are made on both the training and testing datasets using the developed logistic regression models. Confusion matrices are created to assess the model's performance in terms of true positives, true negatives, false positives, and false negatives. Accuracy metrics are calculated based on the confusion matrices.
 
+#### Additional Threshold Optimization
+
+Using a threshold of 0.2, we achieved an accuracy of 0.82.
+
 ## Results
 
 The logistic regression models, especially Model 3, demonstrated significant accuracy in predicting student dropouts. The inclusion of variables with a significant impact, such as Application Mode, Tuition fees up to date, Age At Enrollment, Course, Scholarship Holder, and Curricular Units 2nd Sem Grade, further strengthens the model's predictive capabilities.
