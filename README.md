@@ -20,6 +20,9 @@ Student dropout is a significant concern for educational institutions, as it not
 
 The dataset used in this analysis was collected from Kaggle, providing a diverse set of student information. This dataset includes variables such as demographics, academic performance, and socio-economic factors.
 
+1. **Data Source:** Utilizing the [Kaggle dataset](https://www.kaggle.com/datasets/thedevastator/higher-education-predictors-of-student-retention).
+2. **Code Description Integration:** Integrating Dataset Column Descriptions and Categories from Damiieibikun's GitHub repository appendix, found [here](https://github.com/Damiieibikun/Student-s-Dropout-Prediction-using-Supervised-Machine-Learning-Classifiers). This repository provides the missing information regarding the categorical labels used in the dataset.
+
 ### Data Loading and Exploration
 
 The first step involves loading the dataset into R and exploring its structure, including variable names and data types. The dataset is then split into training and testing sets for model development and evaluation.
