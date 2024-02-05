@@ -62,19 +62,19 @@ The findings of this study highlight the importance of specific variables in pre
 ## Project Recap:
 
 1. Data Splitting:
-- Divided the dataset into testing and training sets for robust evaluation.
+-   Divided the dataset into testing and training sets for robust evaluation.
 
 2. Training and Testing:
-- Trained the models using the training dataset.
-- Tested the models using the testing dataset.
+-   Trained the models using the training dataset.
+-   Tested the models using the testing dataset.
 
 3. Model Development:
-- Created logistic regression models (Model 1, Model 2, and Model 3) with varying predictor variables.
+-   Created logistic regression models (Model 1, Model 2, and Model 3) with varying predictor variables.
 
-Threshold Optimization:
-- Initially used a threshold of 0.5, achieving 84% accuracy.
-- Utilized ROC curve analysis to optimize the threshold.
+4. Threshold Optimization:
+-   Initially used a threshold of 0.5, achieving 84% accuracy.
+-   Utilized ROC curve analysis to optimize the threshold.
 
-4. Improved Accuracy:
-- Chose a threshold of 0.3, resulting in an accuracy improvement to 82%.
-- Successfully balanced accuracy while reducing true negatives, enhancing the model's overall performance.
+5. Improved Accuracy:
+-   Chose a threshold of 0.3, resulting in an accuracy improvement to 82%.
+-   Successfully balanced accuracy while reducing true negatives, enhancing the model's overall performance.
