@@ -58,3 +58,23 @@ The following variables were found to have a significant impact on student dropo
 ## Conclusion
 
 The findings of this study highlight the importance of specific variables in predicting student dropouts. The significant impact of Application Mode, Tuition fees up to date, Age At Enrollment, Course, Scholarship Holder, and Curricular Units 2nd Sem Grade emphasizes the need for tailored interventions targeting these aspects to prevent student attrition. Educational institutions can utilize the developed logistic regression model to identify at-risk students early, enabling proactive support and resource allocation. By understanding the key contributors to dropout, institutions can implement targeted strategies to enhance student success and retention.
+
+## Project Recap:
+
+1. Data Splitting:
+- Divided the dataset into testing and training sets for robust evaluation.
+
+2. Training and Testing:
+- Trained the models using the training dataset.
+- Tested the models using the testing dataset.
+
+3. Model Development:
+- Created logistic regression models (Model 1, Model 2, and Model 3) with varying predictor variables.
+
+Threshold Optimization:
+- Initially used a threshold of 0.5, achieving 84% accuracy.
+- Utilized ROC curve analysis to optimize the threshold.
+
+4. Improved Accuracy:
+- Chose a threshold of 0.3, resulting in an accuracy improvement to 82%.
+- Successfully balanced accuracy while reducing true negatives, enhancing the model's overall performance.
