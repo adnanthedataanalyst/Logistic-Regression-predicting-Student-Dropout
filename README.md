@@ -37,7 +37,7 @@ Predictions are made on both the training and testing datasets using the develop
 
 #### Additional Threshold Optimization
 
-Using a threshold of 0.2, we achieved an accuracy of 0.82.
+Using a threshold of 0.3, we achieved an accuracy of 0.82.
 
 ## Results
 
