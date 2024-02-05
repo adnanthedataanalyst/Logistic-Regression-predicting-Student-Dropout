@@ -37,7 +37,7 @@ Predictions are made on both the training and testing datasets using the develop
 
 #### Additional Threshold Optimization
 
-Using a threshold of 0.3, we achieved an accuracy of 0.82.
+Using a threshold of 0.3, we achieved an accuracy of 0.82. Threshold optimization based on ROC curves contributes to improved accuracy, providing a comprehensive understanding of the model's performance.
 
 ## Results
 
@@ -54,7 +54,6 @@ The following variables were found to have a significant impact on student dropo
 - Scholarship Holder
 - Curricular Units 2nd Sem Grade
 
-Threshold optimization based on ROC curves contributes to improved accuracy, providing a comprehensive understanding of the model's performance.
 
 ## Conclusion
 
