@@ -1,0 +1,192 @@
+---
+title: "Logistic Regression predicting Student Dropout"
+author: "Adnan Mayof"
+date: "2024-02-02"
+output: html_document
+---
+
+This R Markdown document guides through a logistic regression analysis for predicting student dropouts using R. Using student demographics, academic performance, and socio-economic data, the goal is to develop a robust predictive model. This model can assist educational institutions in resource allocation, implementing early interventions, and supporting at-risk students. The code covers data loading, exploration, and model building, while also introducing techniques like confusion matrices and ROC curves to enhance predictive accuracy assessment.
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+```
+ 
+```{r}
+# Load Libraries
+#install.packages("caTools")
+#install.packages("ROCR")
+library(caTools)
+library(ROCR)
+```
+
+
+
+```{r}
+# Step 1: Read Data
+# Read the CSV file into R_Data
+R_Data <- read.csv("R_Data.csv")
+```
+
+```{r}
+# Step 2: Attach Dataframe
+# Attach the R_Data dataframe for easier variable reference
+attach(R_Data)
+```
+
+
+```{r}
+# Step 3: Check Column Names
+# Check Column Names
+names(R_Data)
+```
+
+```{r}
+# Step 4: Verify Data Structure
+# Verify Data Structure
+str(R_Data)
+```
+
+```{r}
+# Step 5: Split Data
+# Split the dataset into training and testing sets
+split <- sample.split(R_Data, SplitRatio = 0.8)
+split 
+```
+
+```{r}
+# Step 6: Create Training and Testing Datasets
+# Create training and testing datasets based on the split
+training <- subset(R_Data, split == TRUE)
+testing <- subset(R_Data, split == FALSE)
+```
+
+```{r}
+# Step 7: Display First 5 Rows
+# Display the first 5 rows of the training dataset
+# A: training dataset
+head(training, n = 5)
+
+# Display the first 5 rows of the testing dataset
+# B: testing dataset
+head(testing, n = 5)
+```
+
+
+```{r}
+# Step 8: Build Logistic Regression Models - Model 1
+# Model1A with training dataset
+model1A <- glm(Dropout ~ ., training, family = "binomial")
+summary(model1A)
+
+# Model1B with testing dataset
+model1B <- glm(Dropout ~ ., testing, family = "binomial")
+summary(model1B)
+```
+
+```{r}
+# Step 8: Build Logistic Regression Models - Model 2
+# ModelA2 with training dataset
+modelA2 <- glm(Dropout ~ Marital_Status + Application_Mode - Application_Order, training, family = "binomial")
+summary(modelA2)
+
+# ModelB2 with testing dataset
+modelB2 <- glm(Dropout ~ Marital_Status + Application_Mode - Application_Order, testing, family = "binomial")
+summary(modelB2)
+```
+
+```{r}
+# Step 8: Build Logistic Regression Models - Model 2
+# ModelA2 with training dataset
+modelA2 <- glm(Dropout ~ Marital_Status + Application_Mode - Application_Order, training, family = "binomial")
+summary(modelA2)
+
+# ModelB2 with testing dataset
+modelB2 <- glm(Dropout ~ Marital_Status + Application_Mode - Application_Order, testing, family = "binomial")
+summary(modelB2)
+```
+
+```{r}
+# Step 8: Build Logistic Regression Models - Model 3
+# ModelA3 with training dataset
+modelA3 <- glm(Dropout ~ Application_Mode + Tuition_fees_up_to_date + Age_At_Enrollment + Course + Scholarship_Holder + Curricular_Units_2nd_Sem_Grade, training, family = "binomial")
+summary(modelA3)
+
+# ModelB3 with testing dataset
+modelB3 <- glm(Dropout ~ Application_Mode + Tuition_fees_up_to_date + Age_At_Enrollment + Course + Scholarship_Holder + Curricular_Units_2nd_Sem_Grade, testing, family = "binomial")
+summary(modelB3)
+```
+
+
+```{r}
+# Step 9: Make Predictions
+# A: training dataset
+res_train <- predict(modelA3, training, type = "response")
+head(res_train, n = 10)
+
+# B: testing dataset
+res_test <- predict(modelB3, testing, type = "response")
+head(res_test, n = 10)
+```
+
+```{r}
+# Step 10: Create Confusion Matrix
+# A: training dataset
+conf_matrix_train <- table(actualValue = training$Dropout, PredictedValue = res_train > 0.5)
+conf_matrix_train
+
+# B: testing dataset
+conf_matrix_test <- table(actualValue = testing$Dropout, PredictedValue = res_test > 0.5)
+conf_matrix_test
+```
+
+```{r}
+# Step 11: Calculate Accuracy
+# A: training dataset
+accuracy_train <- sum(diag(conf_matrix_train)) / sum(conf_matrix_train)
+accuracy_train
+
+# B: testing dataset
+accuracy_test <- sum(diag(conf_matrix_test)) / sum(conf_matrix_test)
+accuracy_test
+```
+
+```{r}
+# Step 12: Calculate Threshold
+# A: training dataset
+threshold_conf_matrix_train <- table(actualValue = training$Dropout, PredictedValue = res_train > 0.5)
+threshold_accuracy_train <- sum(diag(threshold_conf_matrix_train)) / sum(threshold_conf_matrix_train)
+threshold_accuracy_train
+
+# B: testing dataset
+threshold_conf_matrix_test <- table(actualValue = testing$Dropout, PredictedValue = res_test > 0.5)
+threshold_accuracy_test <- sum(diag(threshold_conf_matrix_test)) / sum(threshold_conf_matrix_test)
+threshold_accuracy_test
+```
+
+
+```{r}
+# Step 13: Choose New Threshold using ROC Curve
+# A: training dataset
+ROCRPred_train <- prediction(res_train, training$Dropout)
+ROCRPref_train <- performance(ROCRPred_train, "tpr", "fpr")
+plot(ROCRPref_train, colorize = TRUE, print.cutoffs.at = seq(0.1, by = 0.1))
+
+# B: testing dataset
+ROCRPred_test <- prediction(res_test, testing$Dropout)
+ROCRPref_test <- performance(ROCRPred_test, "tpr", "fpr")
+plot(ROCRPref_test, colorize = TRUE, print.cutoffs.at = seq(0.1, by = 0.1))
+```
+
+```{r}
+# Step 14: Choose New Threshold based on ROC Curve
+# A: training dataset
+new_threshold_conf_matrix_train <- table(actualValue = training$Dropout, PredictedValue = res_train > 0.3)
+new_threshold_accuracy_train <- sum(diag(new_threshold_conf_matrix_train)) / sum(new_threshold_conf_matrix_train)
+new_threshold_accuracy_train
+
+# B: testing dataset
+new_threshold_conf_matrix_test <- table(actualValue = testing$Dropout, PredictedValue = res_test > 0.3)
+new_threshold_accuracy_test <- sum(diag(new_threshold_conf_matrix_test)) / sum(new_threshold_conf_matrix_test)
+new_threshold_accuracy_test
+```
+ 
