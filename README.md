@@ -55,6 +55,8 @@ The following variables were found to have a significant impact on student dropo
 - Curricular Units 2nd Sem Grade
 
 
+### [Tabealu Dashboard](https://public.tableau.com/views/StudentDropout/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)
+
 ## Conclusion
 
 The findings of this study highlight the importance of specific variables in predicting student dropouts. The significant impact of Application Mode, Tuition fees up to date, Age At Enrollment, Course, Scholarship Holder, and Curricular Units 2nd Sem Grade emphasizes the need for tailored interventions targeting these aspects to prevent student attrition. Educational institutions can utilize the developed logistic regression model to identify at-risk students early, enabling proactive support and resource allocation. By understanding the key contributors to dropout, institutions can implement targeted strategies to enhance student success and retention.
