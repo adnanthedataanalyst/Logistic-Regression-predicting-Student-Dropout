@@ -38,10 +38,6 @@ Three logistic regression models (Model 1, Model 2, and Model 3) are built using
 
 Predictions are made on both the training and testing datasets using the developed logistic regression models. Confusion matrices are created to assess the model's performance in terms of true positives, true negatives, false positives, and false negatives. Accuracy metrics are calculated based on the confusion matrices.
 
-#### Additional Threshold Optimization
-
-Using a threshold of 0.3, we achieved an accuracy of 0.82. Threshold optimization based on ROC curves contributes to improved accuracy, providing a comprehensive understanding of the model's performance.
-
 ## Results
 
 The logistic regression models, especially Model 3, demonstrated significant accuracy in predicting student dropouts. The inclusion of variables with a significant impact, such as Application Mode, Tuition fees up to date, Age At Enrollment, Course, Scholarship Holder, and Curricular Units 2nd Sem Grade, further strengthens the model's predictive capabilities.
@@ -57,8 +53,13 @@ The following variables were found to have a significant impact on student dropo
 - Scholarship Holder
 - Curricular Units 2nd Sem Grade
 
+#### Additional Threshold Optimization
+
+Using a threshold of 0.3, we achieved an accuracy of 0.82. Threshold optimization based on ROC curves contributes to improved accuracy, providing a comprehensive understanding of the model's performance.
+
 
 ### [Tabealu Dashboard](https://public.tableau.com/views/StudentDropout/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)
+This Tableau dashboard visually represents the robust predictive capabilities of logistic regression models in identifying students at risk of dropping out. The highlighted variables provide actionable insights, enabling educational institutions to implement evidence-based interventions and optimize their support systems for improved student outcomes.
 
 ## Conclusion
 
