@@ -6,6 +6,12 @@ This project aims to develop a logistic regression model for predicting student 
 
 **Note**: You can find the RMarkdown file containing codes and results, as well as the Excel file used in this study, in this repository.
 
+
+ 
+
+### Dataset Description
+This dataset, crafted by experts from the [VALORIZA Research Center and Polytechnic Institute of Portalegre](https://zenodo.org/records/5777340#.Y7FJotJBwUE), compiles information on students in diverse undergraduate degrees. It includes details from enrollment, such as academic path and socio-economic factors, as well as academic performance at the first and second semesters. The dataset is designed for building classification models to predict students' dropout and success at the end of the course duration.
+
 ## Problem Statement
 
 Student dropout is a significant concern for educational institutions, as it not only affects the individual student's academic progress but also influences resource allocation and institutional planning. Identifying factors contributing to student dropout and building an accurate predictive model can enable timely interventions and support systems, ultimately reducing dropout rates. This project addresses the need for an effective logistic regression model to predict student dropouts based on relevant features.
@@ -20,7 +26,7 @@ Student dropout is a significant concern for educational institutions, as it not
 
 The dataset used in this analysis was collected from Kaggle, providing a diverse set of student information. This dataset includes variables such as demographics, academic performance, and socio-economic factors.
 
-1. **Data Source:** Utilizing the [Kaggle dataset](https://www.kaggle.com/datasets/thedevastator/higher-education-predictors-of-student-retention).
+1. **Data Source:**  [Kaggle dataset](https://www.kaggle.com/datasets/thedevastator/higher-education-predictors-of-student-retention).
 2. **Code Description Integration:** Integrating Dataset Column Descriptions and Categories from Damiieibikun's GitHub repository appendix, found [here](https://github.com/Damiieibikun/Student-s-Dropout-Prediction-using-Supervised-Machine-Learning-Classifiers). This repository provides the missing information regarding the categorical labels used in the dataset.
 
 ### Data Loading and Exploration
